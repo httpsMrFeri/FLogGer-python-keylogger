@@ -10,17 +10,16 @@ You can deliver the EXE file as it is, or bind it with other files so that it is
 ## This is a proof of concept and could be improved on in a lot of ways.
 
 **1º - Download framework from github**<br />
-`git clone https://github.com/httpsMrFeri/FLogGer.git`
+`git clone https://github.com/httpsMrFeri/FLogGer.git`<br/>
+`cd FLogGer`<br />
+`pip install -r ./requirements.txt`<br />
 
 **2º - Set execution permissions for linux**<br />
-`cd FLogGer`<br />
 `sudo chmod 255 ./FlogGer.sh;`<br />
 `sudo ./FlogGer.sh;`<br />
 
 **2º - Set execution permissions for windows (you should install python3)**<br />
-`cd FLogGer`<br />
 `python3 ./FlogGer.py`<br />
 
 **2º - Set execution permissions for windows (run exe file)**<br />
-`cd FLogGer`<br />
 `./FlogGer.exe`<br />
