@@ -1,6 +1,6 @@
-os
-colorama
-time
-platform
-pynput
-requests
+colorama 
+pynput 
+platform 
+requests 
+time 
+os 
