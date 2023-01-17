@@ -21,5 +21,5 @@ You can deliver the EXE file as it is, or bind it with other files so that it is
 **2º - Set execution permissions for windows (you should install python3)**<br />
 `python3 ./FlogGer.py`<br />
 
-**2º - Set execution permissions for windows (run exe file)**<br />
+**2º - Set execution permissions for windows (run exe file)(conming soon)**<br />
 `./FlogGer.exe`<br />
