@@ -17,7 +17,7 @@ You can deliver the EXE file as it is, or bind it with other files so that it is
 `sudo chmod * ./FlogGer.sh;`<br />
 `sudo ./FlogGer.sh;`<br />
 
-**2º - Set execution permissions for windows (you should install python)**<br />
+**2º - Set execution permissions for windows (you should install python3)**<br />
 `cd FLogGer`<br />
 `python3 ./FlogGer.py`<br />
 
