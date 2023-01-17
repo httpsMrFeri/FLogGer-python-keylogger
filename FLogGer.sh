@@ -124,6 +124,14 @@ def Compiler():
 def WorkSubmit():
     global login
     if login == '0':
+        print(Fore.RED+'''
+                        _____ _                 ____           
+                        |  ___| |    ___   __ _ / ___| ___ _ __ 
+                        | |_  | |   / _ \ / _` | |  _ / _ \ '__|
+                        |  _| | |__| (_) | (_| | |_| |  __/ |   
+                        |_|   |_____\___/ \__, |\____|\___|_|   
+                                        |___/                           
+'''+Fore.WHITE)
         print(Fore.CYAN+helpMessage)
     else : 
         pass
@@ -178,4 +186,3 @@ def WorkSubmit():
 
 while True:
     WorkSubmit()
-
