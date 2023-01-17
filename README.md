@@ -4,7 +4,7 @@
     targets without prior consent is illegal and punished by law. So use this tool responsibly.
 
 #### HOW DO I DELIVER MY PAYLOADS TO TARGET HOST ?
-    Flogger v1.1 for File Script Shell for Linux and Exe File for Windows.
+    Flogger v1.0.1 for File Script Shell for Linux and Exe File for Windows.
 You can deliver the EXE file as it is, or bind it with other files so that it is not easy to detect.
 
 ## This is a proof of concept and could be improved on in a lot of ways.
