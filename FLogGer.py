@@ -29,6 +29,14 @@ White = Fore.WHITE
 Green = Fore.GREEN
 Yellow = Fore.YELLOW
 Cyan = Fore.CYAN
+
+R = Fore.RED
+B = Fore.BLUE
+W = Fore.WHITE
+G = Fore.GREEN
+Y= Fore.YELLOW
+C = Fore.CYAN
+
 inputICon = (Green+'=-=>  '+White)
 
 iconName = Green+'''
@@ -40,26 +48,26 @@ iconName = Green+'''
                                            |___/                           
 '''
 
-helpMessage = Green+'''
-    ╔════════════════════════════════════════════════════════════════════════════════════╗
-    ║  -bt     Telgram Bot TOKEN < -bt 1313131313:qwwwet45gdfg3dfhdsdkwsm9mfks9edjdls >  ║
-    ║  -ci     Telgram Chat Id < -ci 121212121 >                                         ║
-    ║  -np     Set Payload Name, Don't Enter The File Extension(Default Name : file)     ║
-    ║  -o      Show option                                                               ║
-    ║  -s      Start Compile                                                             ║
-    ║  -h      Help                                                                      ║
-    ║  -e      Exit                                                                      ║
-    ╚════════════════════════════════════════════════════════════════════════════════════╝
+helpMessage = f'''
+    {Y}╔════════════════════════════════════════════════════════════════════════════════════╗
+    {Y}║{G}  -bt     Telgram Bot TOKEN < -bt 1313131313:qwwwet45gdfg3dfhdsdkwsm9mfks9edjdls >  {Y}║
+    {Y}║{G}  -ci     Telgram Chat Id < -ci 121212121 >                                         {Y}║
+    {Y}║{G}  -np     Set Payload Name, Don't Enter The File Extension(Default Name : file)     {Y}║
+    {Y}║{G}  -o      Show option                                                               {Y}║
+    {Y}║{G}  -s      Start Compile                                                             {Y}║
+    {Y}║{G}  -h      Help                                                                      {Y}║
+    {Y}║{G}  -e      Exit                                                                      {Y}║
+    {Y}╚════════════════════════════════════════════════════════════════════════════════════╝
 '''+White
 
 compilerMessage = Green+'''
-    ╔════════════════════════════════════════════════════════════════════════════════════╗
-    ║  ?       Help                                                                      ║
-    ║  1       exe File (windows)                                                        ║
-    ║  2       sh File (linux)                                                           ║
-    ║  B       Back                                                                      ║
-    ║  E       Exit                                                                      ║
-    ╚════════════════════════════════════════════════════════════════════════════════════╝
+    {Y}╔════════════════════════════════════════════════════════════════════════════════════╗
+    {Y}║{B}  ?       Help                                                                      {Y}║
+    {Y}║{B}  1       exe File (windows)                                                        {Y}║
+    {Y}║{B}  2       sh File (linux)                                                           {Y}║
+    {Y}║{B}  B       Back                                                                      {Y}║
+    {Y}║{B}  E       Exit                                                                      {Y}║
+    {Y}╚════════════════════════════════════════════════════════════════════════════════════╝
 '''+White
 
 # Def
