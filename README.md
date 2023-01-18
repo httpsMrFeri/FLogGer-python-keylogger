@@ -1,5 +1,5 @@
 # Simple Python Keylogger with Pynput. Sending Target Data With Telgram Bot To You.
-![worsSpace](https://user-images.githubusercontent.com/109946641/212953787-90f16209-b8fd-4410-b33e-071644cfe6d6.png)
+![image](https://user-images.githubusercontent.com/109946641/213129872-a6110dd5-6c65-494f-9e07-e7cd382b158d.png)
 #### LEGAL DISCLAMER
     The author does not hold any responsibility for the bad use of this tool, remember that attacking
     targets without prior consent is illegal and punished by law. So use this tool responsibly.
