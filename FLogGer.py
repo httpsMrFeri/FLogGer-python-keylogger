@@ -92,7 +92,7 @@ def Compiler():
     chatId = trojanData['chatId']
     
     if trojanData['token'] == None or trojanData['chatId'] == None:
-        print(White+f'bot token set ==> {token}\nchat Id set ==> {chatId}\n'+Red+'Fields should not be empty\ntry again\n'+White)
+        print(White+f'bot token not set \nchat Id not set ==> {chatId}\noptions should not be'+Red+'empty\n'+White+'try again\n')
         return
     
     
@@ -162,7 +162,7 @@ def WorkSubmit():
         workSub = workSub.split()
        
         
-    if len(workSub)==1 and workSub[0] != 'Help' and workSub[0] != 'Exit' and workSub[0] != 'Start' and workSub[0] != 'Options':
+    if len(workSub)==1 and workSub[0] != 'help' and workSub[0] != 'exit' and workSub[0] != 'start' and workSub[0] != 'options':
         print('Usage:\n\t< -options command >')
     else:
         if workSub[0] == 'token':
