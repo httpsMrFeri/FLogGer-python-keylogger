@@ -41,8 +41,8 @@ iconName = Green+'''
 
 helpMessage = f'''
     {Yellow}╔══════════════════════════════════════════════════════════════════════════════╗
-    {Yellow}║{Green} token          Telgram Bot Token < -bt 1313131:qwwwetfg3dfhdsdkwsm9mfks >    {Yellow}║
-    {Yellow}║{Green} chatID         Telgram Chat Id < -ci 121212121 >                             {Yellow}║
+    {Yellow}║{Green} token          Telgram Bot Token < token 131131:qwwetfg3dfhdsdkwsm9mfks >    {Yellow}║
+    {Yellow}║{Green} chatID         Telgram Chat Id < chatID 121212121 >                          {Yellow}║
     {Yellow}║{Green} payloadName    Set Payload Name (Default Name : file)                        {Yellow}║
     {Yellow}║{Green} options        Show option                                                   {Yellow}║
     {Yellow}║{Green} start          Start Compile                                                 {Yellow}║
