@@ -30,3 +30,7 @@ You can deliver the EXE file as it is, or bind it with other files so that it is
 
 - enter Bot Token with `-bt BotTOKEN` and enter ChatId with `-ci YourChatID`
 - now you can see all keylogger data who will run the trojan
+---
+## Disclaimer
+Devolper Provides no warranty with this software and will not be responsible for any direct or indirect damage caused due to the usage of this tool.
+FloGer is built for both Educational and Internal use ONLY.
