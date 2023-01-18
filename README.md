@@ -33,4 +33,4 @@ You can deliver the EXE file as it is, or bind it with other files so that it is
 ---
 ## Disclaimer
 Devolper Provides no warranty with this software and will not be responsible for any direct or indirect damage caused due to the usage of this tool.
-Dogerat is built for both Educational and Internal use ONLY.
+FloGer is built for both Educational and Internal use ONLY.
