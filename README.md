@@ -15,12 +15,6 @@ You can deliver the EXE file as it is, or bind it with other files so that it is
 `cd FLogGer`<br />
 `pip install -r ./requirements.txt`<br />
 
-**2º - Set execution permissions for linux**<br />
-`sudo chmod 755 ./FlogGer.sh;`<br />
-`sudo ./FlogGer.sh;`<br />
-
-**2º - Set execution permissions for windows (you should install python3)**<br />
+**2º - Set execution permissions (you should install python3)**<br />
 `python3 ./FlogGer.py`<br />
 
-**2º - Set execution permissions for windows (run exe file)(conming soon)**<br />
-`./FlogGer.exe`<br />
