@@ -17,8 +17,9 @@ You can deliver the EXE file as it is, or bind it with other files so that it is
 
 **2º - Set execution permissions (you should install python3)**<br />
 `python3 ./FlogGer.py`<br />
-
-**3º - Make Telgram bot and give token**<br />
+**3º - windows users who do not have Python**<br/>
+`./FLogGer.exe`
+**4º - Make Telgram bot and give token**<br />
 - Search  BotFather on Telegram and start
   ![searchBotFather](https://user-images.githubusercontent.com/109946641/213139200-fea0af1d-1114-4426-997a-1cba708d3184.jpg)
 - Creat a bot with any name/username and Copy your Bot token
