@@ -12,10 +12,9 @@ You can deliver the EXE file as it is, or bind it with other files so that it is
 
 **1º - Download framework from github**<br />
 `git clone https://github.com/httpsMrFeri/FLogGer.git`<br/>
+**2º - Set execution permissions (you should install python3)**<br />
 `cd FLogGer`<br />
 `pip install -r ./requirements.txt`<br />
-
-**2º - Set execution permissions (you should install python3)**<br />
 `python3 ./FlogGer.py`<br />
 **3º - If you want the exe file is also (be careful you must install Python)**<br/>
 you can install python from [here](https://www.python.org/downloads/)<br/>
