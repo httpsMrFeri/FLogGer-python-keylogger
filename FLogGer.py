@@ -46,8 +46,8 @@ helpMessage = f'''
     {Yellow}║{Green} payloadName    Set Payload Name (Default Name : file)                        {Yellow}║
     {Yellow}║{Green} options        Show option                                                   {Yellow}║
     {Yellow}║{Green} start          Start Compile                                                 {Yellow}║
-    {Yellow}║{Green} help           Help                                                          {Yellow}║
-    {Yellow}║{Green} exit           Exit                                                          {Yellow}║
+    {Yellow}║{Green} help           Show help menu                                                {Yellow}║
+    {Yellow}║{Green} exit           Exit from program                                             {Yellow}║
     {Yellow}╚══════════════════════════════════════════════════════════════════════════════╝
 '''+White
 
@@ -55,9 +55,9 @@ compilerMessage =f'''
     {Yellow}╔══════════════════════════════════════════════════════════════════════════════╗
     {Yellow}║{Green} windows        exe File (windows)                                            {Yellow}║
     {Yellow}║{Green} linux          sh File (linux)                                               {Yellow}║
-    {Yellow}║{Green} help           Help                                                          {Yellow}║
     {Yellow}║{Green} back           Back to set payload options                                   {Yellow}║
-    {Yellow}║{Green} exit                                                                         {Yellow}║
+    {Yellow}║{Green} help           Show help menu                                                {Yellow}║
+    {Yellow}║{Green} exit           Exit from program                                             {Yellow}║
     {Yellow}╚══════════════════════════════════════════════════════════════════════════════╝
 '''+White
 
