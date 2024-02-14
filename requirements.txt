@@ -1,7 +1,7 @@
 colorama==0.4.6
 pynput==1.7.6
 rich==13.1.0
-pyinstaller==5.7.0
+pyinstaller==5.13.1
 platform 
 requests 
 time 
